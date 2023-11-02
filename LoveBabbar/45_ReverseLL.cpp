@@ -119,7 +119,7 @@ class Node {
 
 
 void reverseLL(Node* &head);
-void reverseLLRecursively(Node* &head, Node* prev, Node* curr, Node* forward);
+void reverseLLRecursively(Node* &head, Node* prev, Node* curr);
 
 int main() {
     Node* linkedList = new Node(0);
@@ -142,10 +142,9 @@ int main() {
     linkedList -> printLinkedList(head);
 
     //reverseLL(head);
-    Node* forward = head -> next;
     Node* curr = head;
     Node* prev = NULL;
-    reverseLLRecursively(head, prev, curr, forward);
+    reverseLLRecursively(head, prev, curr);
 
 
     cout << endl << endl << "Size of the linked list: " << linkedList -> LinkedListLength(head) << endl;
@@ -172,15 +171,14 @@ void reverseLL(Node* &head){
 }
 
 // REVERSING A LINKED LIST RECURSIVELY: 
-void reverseLLRecursively(Node* &head, Node* prev, Node* curr, Node* forward){
+void reverseLLRecursively(Node* &head, Node* prev, Node* curr){
     // Base Case 
     if(curr == NULL){
         head = prev;
         return;
     }
-    forward = curr -> next;
+    Node* forward = curr -> next;
+    reverseLLRecursively(head, forward, curr);
     curr -> next = prev;
-    prev = curr;
-    curr = forward;
-    reverseLLRecursively(head, prev, curr, forward);
+
 }
