@@ -107,8 +107,8 @@ class Node {
     /* Get the size of the linked list */
     int LinkedListLength(Node* &head) {
         Node* temp = head;
-        int count = 0;
-        while (temp != NULL) {
+        int count = 1;
+        while (temp -> next != NULL) {
             count++;
             temp = temp -> next;
         }
