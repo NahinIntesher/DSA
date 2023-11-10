@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void printVec(int arr[]){
+    for (int i = 0; i < 8; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 int partition(int arr[], int start, int end){
     int pivot = arr[start];
     
@@ -32,7 +39,7 @@ void QuickSort(int arr[], int start, int end){
 
     // Partition
     int index = partition(arr, start, end);
-
+    //printVec(arr);
     // First part
     QuickSort(arr, start, index-1);
     // Second part
@@ -41,8 +48,8 @@ void QuickSort(int arr[], int start, int end){
 
 int main(){
     int n;
-    n = 15;
-    int arr[n] = {3, 7, 0, 1, 5, 8, 3, 2, 34, 66, 87, 23, 12, 12, 12};
+    n = 8;
+    int arr[n] = {18, 23, 56, 26, 89, 37, 28, 48};
     // cout<<"Enter size of the array/vector (n): ";
     // cin>>n;
     // for(auto &a: arr){
