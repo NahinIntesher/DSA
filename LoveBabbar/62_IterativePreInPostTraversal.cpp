@@ -35,8 +35,10 @@ Node* buildTree(Node* root){
 }
 
 vector<int> iterativePre(Node* root){
-    stack<Node*> st;
     vector<int> v;
+    if(root == NULL) return v;
+
+    stack<Node*> st;
     st.push(root);
 
     while (!st.empty()){
@@ -76,22 +78,22 @@ vector<int> iterativeIn(Node* root){
 }
 
 vector<int> iterativePost(Node* root){
-    stack<Node*> st;
-    stack<Node*> st2;
     vector<int> v;
-    Node* node = root;
-    st.push(node);
+    if(root == NULL) return v;
+
+    stack<Node*> st, st2;
+    st.push(root);
+
     while (!st.empty()){
-
-        st2.push(st.top());
+        root = st.top();
         st.pop();
-
+        st2.push(root);
+        
         if(st2.top() -> left != NULL){
-            st.push(st2.top() -> left);
-
+            st.push(root -> left);
         }
-        if(st2.top() -> right != NULL){
-            st.push(st2.top() -> right);
+        if(root -> right != NULL){
+            st.push(root -> right);
         }
     }
 
@@ -99,7 +101,6 @@ vector<int> iterativePost(Node* root){
         v.push_back(st2.top() -> data);
         st2.pop();
     }
-    
     return v;
 }
 
