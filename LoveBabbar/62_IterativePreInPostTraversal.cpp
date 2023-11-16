@@ -119,9 +119,4 @@ int main(){
     vector<int> ans3 = iterativePost(root);
     printVec(ans3);
 
-
-
-
-
-
 }
