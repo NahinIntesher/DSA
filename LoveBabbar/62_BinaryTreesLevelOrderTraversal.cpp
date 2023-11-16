@@ -79,9 +79,8 @@ void printTree(vector<vector<Node*>> Tree){
 }
 
 int main(){
-    Node* root;
-    root = buildTree(root);
-     
+    Node* root = buildTree(root);
+    
     cout << "\n\n>> Printing the data of the tree: \n";
     vector<vector<Node*>> Tree = levelWiseTraversal(root);
 
