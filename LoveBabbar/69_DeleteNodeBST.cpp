@@ -97,54 +97,48 @@ Node* deleteNodeBST(Node* root, int x){
 
 
 
-vector<vector<Node*>> levelWiseTraversal(Node* root){
-    vector<vector<Node*>> Tree;
-    if(root == NULL) return Tree;
-    
+
+void levelOrderTraversal(Node* root) {
     queue<Node*> q;
     q.push(root);
-    while(!q.empty()){
-        vector<Node*> level;
-        while (!q.empty()){
-            level.push_back(q.front());
-            q.pop();
-        }
+    q.push(NULL);
 
-        for (int i = 0; i < level.size(); i++){
-            Node* tempNode = level[i];
-            if(tempNode -> left){
-                q.push(tempNode -> left);
+    while(!q.empty()) {
+        Node* temp = q.front();
+        q.pop();
+
+        if(temp == NULL) { 
+            //purana level complete traverse ho chuka hai
+            cout << endl;
+            if(!q.empty()) { 
+                //queue still has some child ndoes
+                q.push(NULL);
+            }  
+        }
+        else{
+            cout << temp -> data << " ";
+            if(temp ->left) {
+                q.push(temp ->left);
             }
-            if(tempNode -> right){
-                q.push(tempNode -> right);
+
+            if(temp ->right) {
+                q.push(temp ->right);
             }
         }
-        Tree.push_back(level);
-        level.clear();        
-
     }
-    return Tree;
-}
 
-void printTree(vector<vector<Node*>> Tree){
-    for (int i = 0; i < Tree.size(); i++) { 
-        for (int j = 0; j < Tree[i].size(); j++) {
-            cout << Tree[i][j] -> data << " "; 
-        }
-        cout << endl; 
-    } 
 }
 
 int main(){
     Node* root = NULL;
     takeInput(root);
     
-    vector<vector<Node*>> Tree = levelWiseTraversal(root);
     cout << "\n\n>> Printing the data of the tree: \n";
-    printTree(Tree);
+    levelOrderTraversal(root);
 
     root = deleteNodeBST(root, 90);
-    Tree = levelWiseTraversal(root);
     cout << "\n\n>> Printing the data of the tree: \n";
-    printTree(Tree);
+    levelOrderTraversal(root);
+    
+    
 }
