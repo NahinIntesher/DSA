@@ -62,12 +62,12 @@ Node* deleteNodeBST(Node* root, int x){
         }
 
         /* For One child Node*/ 
-        else if(root -> left == NULL && root -> right != NULL){ // Only left child
+        else if(root -> left != NULL && root -> right == NULL){ // Only left child
             Node* leftChild = root -> left;
             delete root;
             return leftChild;
         }
-        else if(root -> left != NULL && root -> right == NULL){ // Only right child
+        else if(root -> left == NULL && root -> right != NULL){ // Only right child
             Node* rightChild = root -> right;
             delete root;
             return rightChild;
@@ -94,9 +94,6 @@ Node* deleteNodeBST(Node* root, int x){
     }
     
 }
-
-
-
 
 void levelOrderTraversal(Node* root) {
     queue<Node*> q;
@@ -126,8 +123,8 @@ void levelOrderTraversal(Node* root) {
             }
         }
     }
-
 }
+
 
 int main(){
     Node* root = NULL;
@@ -139,6 +136,5 @@ int main(){
     root = deleteNodeBST(root, 90);
     cout << "\n\n>> Printing the data of the tree: \n";
     levelOrderTraversal(root);
-    
     
 }
