@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> makeAdjList(vector<pair<int, int> > &edges){
-    vector<vector<int>> adjList(edges.size());
-    for (auto &i: edges){
-        int u = i.first;
-        int v = i.second;
-        cout << u << " " << v << endl;
+unordered_map<int, vector<int>> makeAdjList(int vartex, vector<vector<int> > &edges){
+    unordered_map<int, vector<int>> adjList(vartex);
+    for (int i = 0; i < edges.size(); i++){
+        int u = edges[i][0];
+        int v = edges[i][1];
+
         adjList[u].push_back(v);
         adjList[v].push_back(u);
     }
     return adjList;
 }
 
-void BFS(vector<int> &ans, vector<vector<int>> &adjList, vector<bool> &visited, int node){
+void BFS(vector<int> &ans, unordered_map<int, vector<int>> &adjList, unordered_map<int, bool> &visited, int node){
     queue<int> q;  
     q.push(node);
     visited[node] = true;
@@ -33,13 +33,14 @@ void BFS(vector<int> &ans, vector<vector<int>> &adjList, vector<bool> &visited, 
     }
 }
 
-vector<int> bfsTraversal(int vartex, vector<vector<int>> &adj){
+vector<int> bfsTraversal(int vartex, unordered_map<int, vector<int>> &adj){
     vector<int> ans;
-    vector<bool> visited(vartex, false);
+    unordered_map<int, bool> visited;
 
     // Traversing all the vartices
-    for (int i = 1; i <= vartex; i++){
+    for (int i = 1; i < adj.size(); i++){
         if(!visited[i]){
+            
             BFS(ans, adj, visited, i);
         }
     }
@@ -47,11 +48,22 @@ vector<int> bfsTraversal(int vartex, vector<vector<int>> &adj){
 }
 
 
-int main(){
-    int vartex = 5, Edges = 7;
-    vector<pair<int, int> > edges = {{1, 2}, {1, 5}, {2, 3}, {2, 4}, {3, 4}, {3, 5}, {4, 5}};
 
-    vector<vector<int>> adjList = makeAdjList(edges);
+int main(){
+    int vartex = 9, Edges = 8;
+    vector<vector<int> > edges = {{1, 2}, {2, 3}, {4, 5}, {5, 6}, {5, 7}, {6, 8}, {7, 8}, {8, 9}};
+
+    unordered_map<int, vector<int>> adjList = makeAdjList(vartex, edges);
+
+    // Printing adjList 
+    for(int i = 1; i < adjList.size(); i++){
+        cout << i << " -> ";
+        for(auto j: adjList[i]){
+            cout << j << ", ";
+        }
+        cout << endl;
+    }
+    
 
     vector<int> BreathFirstSearch = bfsTraversal(vartex, adjList);
 
