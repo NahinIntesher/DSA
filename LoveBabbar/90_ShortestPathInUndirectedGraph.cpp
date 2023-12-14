@@ -2,7 +2,9 @@
 using namespace std;
 
 vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , int t){
-    unordered_map<int, list<int>> adjList;
+    
+	// Make Adjacency List
+	unordered_map<int, list<int>> adjList;
     for(int i = 0; i < edges.size(); i++){
         int u = edges[i].first;
         int v = edges[i].second;
@@ -10,6 +12,7 @@ vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , in
         adjList[v].push_back(u);
     }
 	
+	// Do BFS
 	vector<bool> visited(n+1, 0);
 	vector<int> parent(n+1, 0);
 	queue<int> q;
@@ -30,10 +33,8 @@ vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , in
 			}
 		}
 	}
-	// for(int i = 1; i < parent.size(); i++){
-	// 	cout << parent[i] << " ";
-	// }
 
+	// Prepare Shortest path
 	vector<int> shortestPath;
 	int currentNode = t;
 	shortestPath.push_back(currentNode);
