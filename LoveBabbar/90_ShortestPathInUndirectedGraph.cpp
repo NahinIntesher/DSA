@@ -33,10 +33,14 @@ vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , in
 	// for(int i = 1; i < parent.size(); i++){
 	// 	cout << parent[i] << " ";
 	// }
-	vector<int> shortestPath;	
-	while(t != parent[s]){
-		shortestPath.push_back(t);
-		t = parent[t];
+
+	vector<int> shortestPath;
+	int currentNode = t;
+	shortestPath.push_back(currentNode);
+
+	while(currentNode != s){
+		currentNode = parent[currentNode];
+		shortestPath.push_back(currentNode);
 	}
 	reverse(shortestPath.begin(), shortestPath.end());
 	return shortestPath;
