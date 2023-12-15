@@ -22,7 +22,7 @@ void heapify(int arr[], int size, int index){
     }
 }
 
-/* Time Complexity O(logN) */
+/* Time Complexity O(NlogN) */
 void heapSort(int arr[], int n){
     
     // Building Heap
@@ -37,7 +37,7 @@ void heapSort(int arr[], int n){
         size--;
         heapify(arr, size, 1);
     }
-    
+
 }
 
 int main(){
