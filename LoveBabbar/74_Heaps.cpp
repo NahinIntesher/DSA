@@ -65,17 +65,17 @@ class heap{
 
 };
 
-/* Max Heapify with 0 indexing array */
+/* Max Heapify with 1 indexing array */
 void heapify(int arr[], int size, int index){
     int largest = index;
     int left = 2 * index;
     int right = 2 * index + 1;
     
     // Swaping with max child
-    if(left < size && arr[largest] < arr[left]){
+    if(left <= size && arr[largest] < arr[left]){
         largest = left;
     }
-    if(right < size && arr[largest] < arr[right]){
+    if(right <= size && arr[largest] < arr[right]){
         largest = right;
     }
     if(largest != index){
@@ -84,7 +84,7 @@ void heapify(int arr[], int size, int index){
     }
 }
 
-/* Min Heapify with 1 indexing array
+/* Min Heapify with 0 indexing array
 void heapify(vector<int> &arr, int n, int i){
     int smallest = i;
     int left = 2*i + 1;
