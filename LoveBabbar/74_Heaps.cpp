@@ -69,7 +69,7 @@ class heap{
 void heapify(int arr[], int size, int index){
     int largest = index;
     int left = 2 * index;
-    int right = 2 * index + 1;
+    int right = 2 * index + 1; 
     
     // Swaping with max child
     if(left <= size && arr[largest] < arr[left]){
