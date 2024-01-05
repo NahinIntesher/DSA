@@ -79,7 +79,7 @@ int main(){
             forDivide(st);
         else if(s[i] == '^') 
             forPower(st);
-        else if(s[i] == '(') 
+        else if(s[i] == '(')
             st.push('(');
         else if(s[i] == ')'){
             while (!st.empty() && st.top() != '('){

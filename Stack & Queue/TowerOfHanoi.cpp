@@ -15,5 +15,5 @@ int main(){
     cout << endl << "-> Enter number of disc: ";
     cin >> N; 
     cout << "-> No of Moves: " << (2 << (N-1)) - 1 << endl;
-    towerOfHanoi(N, '2', '3', '1');
+    towerOfHanoi(N, '1', '2', '3');
 }
