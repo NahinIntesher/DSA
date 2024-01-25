@@ -1,7 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void getSeries(int N, int a, int b){
+int fib(int N){
+    if(N == 1){
+        return 0;
+    }
+    if(N == 2){
+        return 1;
+    }
+    return fib(N - 2) + fib(N - 1);
+}
+
+void getFibonacciSeries(int N, int a, int b){
     if(N == 1){
         cout << a << " ";
     }
@@ -12,12 +22,15 @@ void getSeries(int N, int a, int b){
         cout << a << " " << b << " ";
         a = a + b;
         b = a + b;
-        getSeries(N - 2, a, b);
+        getFibonacciSeries(N - 2, a, b);
     }
 }
 
 int main(){
     int N;
+    cout << "Enter n: ";
     cin >> N;
-    getSeries(N, 0, 1);
+    cout << "\n>> N'th fibonacci number is: " << fib(N) << endl;
+    cout << "\n>> Fibonacci series is: ";
+    getFibonacciSeries(N, 0, 1);
 }
