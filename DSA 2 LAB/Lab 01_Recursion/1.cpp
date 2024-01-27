@@ -17,13 +17,3 @@ int main(){
     int ans = getPower(x, y);
     cout << ans;
 }
-
-
-
-
-
-
-
-
-
-
