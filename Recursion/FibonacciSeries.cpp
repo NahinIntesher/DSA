@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Get N'th number
 int fib(int N){
     if(N == 1){
         return 0;
@@ -11,6 +12,7 @@ int fib(int N){
     return fib(N - 2) + fib(N - 1);
 }
 
+// Get Series
 void getFibonacciSeries(int N, int a, int b){
     if(N == 1){
         cout << a << " ";
