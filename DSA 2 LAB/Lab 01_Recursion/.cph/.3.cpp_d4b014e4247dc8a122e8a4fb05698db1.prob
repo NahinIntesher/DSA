@@ -1,0 +1,1 @@
+{"name":"Local: 3","url":"d:\\Visual Studio Code WorkShop\\DSA\\DSA 2 LAB\\Lab 01_Recursion\\3.cpp","tests":[{"id":1707147648268,"input":"4\n27\n64\n72\n36","output":"true\nfalse\nfalse\nfalse"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Visual Studio Code WorkShop\\DSA\\DSA 2 LAB\\Lab 01_Recursion\\3.cpp","group":"local","local":true}

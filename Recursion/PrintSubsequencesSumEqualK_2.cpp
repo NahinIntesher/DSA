@@ -32,6 +32,6 @@ int main(){
     vector<int> A = {3, 1, 2};
     vector<int> temp;
     int k = 3;
-    cout << "\n>> Those subsequences whoose sum is equal to 'K' are: : " << endl;
+    cout << "\n>> Those subsequences whoose sum is equal to 'K' are: " << endl;
     subsequences(0, A, temp, k, 0);
 }
