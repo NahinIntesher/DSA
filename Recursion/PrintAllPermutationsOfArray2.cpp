@@ -7,14 +7,14 @@ void printVecVec(vector<vector<int>> A){
         } cout << endl;
     }
 }
-void findPermutation(int ind,vector<int> &nums, vector<vector<int>> &ans){
-    if(ind >= nums.size()){
+void findPermutation(int ind, vector<int> &nums, vector<vector<int>> &ans){
+    if(ind == nums.size()){
         ans.push_back(nums);
         return;
     }
     for (int i = ind; i < nums.size(); i++){
         swap(nums[i], nums[ind]);
-        findPermutation(ind, nums, ans);
+        findPermutation(ind+1, nums, ans);
         swap(nums[ind], nums[i]);
     }
 }
