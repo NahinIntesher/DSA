@@ -2,6 +2,7 @@
 using namespace std;
 #define SIZE 1005
 int n, m, vessel[SIZE];
+
 bool isPossible(int capacity){
     int temp;
     int cnt = 1;

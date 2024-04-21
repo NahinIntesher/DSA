@@ -12,9 +12,9 @@ bool isPossible(int d){
         while(camp <= n && go + dist[camp] <= d) {
             if(dayRemain == distReamin) return true;
             go += dist[camp++];
-            --distReamin;
+            distReamin--;
         }
-        --dayRemain;
+        dayRemain--;
     }
     return (dayRemain == distReamin);
 }
@@ -40,32 +40,32 @@ void print_ans(int d){
         int go = 0;
         while(camp <= n && go + dist[camp] <= d) {
             if(dayRemain == distReamin) {
-                printf("%d\n", go + dist[camp++]);
+                cout << go + dist[camp++] << endl;
 
                 while(camp <= n)
-                    printf("%d\n", dist[camp++]);
+                    cout << dist[camp++] << endl;
                 return;
             }
             go += dist[camp++];
-            --distReamin;
+            distReamin--;
         }
-        printf("%d\n", go);
-        --dayRemain;
+        cout << go << endl;
+        dayRemain--;
     }
 }
 int main(){
     int t;
     cin >> t;
-    for(int tc = 1; tc <= t; ++tc) {
+    for(int i = 1; i <= t; i++) {
         cin >> n >> k;
         int mx = -1, sum = 0;
         for(int i = 0; i <= n; ++i) {
-            scanf("%d", dist+i);
+            cin >> dist[i];
             sum += dist[i];
             if(dist[i] > mx) mx = dist[i];
         }
         int cost = binSearch(mx, sum);
-        cout << "Case " << tc << ":" << cost << endl;
+        cout << "Case " << i << ": " << cost << endl;
         print_ans(cost);
     }
 }
