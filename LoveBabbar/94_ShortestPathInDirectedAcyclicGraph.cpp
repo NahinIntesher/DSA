@@ -9,10 +9,10 @@ vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , in
         int u = edges[i].first;
         int v = edges[i].second;
         adjList[u].push_back(v);
-        adjList[v].push_back(u);
+        // adjList[v].push_back(u);
     }
 	
-	// Do BFS
+	// Do BFS9
 	vector<bool> visited(n+1, 0);
 	vector<int> parent(n+1, 0);
 	queue<int> q;
