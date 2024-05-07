@@ -5,24 +5,24 @@ struct compare{
         return a.first > b.first;
     }
 };
-
 int main(){
     int graph[100][100];
-    int n_vertex, n_edge, i, j, u, v, w;
+    int n_vertex, n_edge;
+    int u, v, w;
     cin >> n_vertex >> n_edge;
-    for (i = 0; i <= n_vertex; i++){
-        for (j = 0; j <= n_vertex; j++)
+    for (int i = 0; i <= n_vertex; i++){
+        for (int j = 0; j <= n_vertex; j++)
             graph[i][j] = 0;
     }
 
-    for (i = 0; i < n_edge; i++){
+    for (int i = 0; i < n_edge; i++){
         cin >> u >> v >> w;
         graph[u][v] = w;
         // graph[v][u]=w;
     }
 
-    for (i = 0; i <= n_vertex; i++){
-        for (j = 0; j <= n_vertex; j++)
+    for (int i = 0; i <= n_vertex; i++){
+        for (int j = 0; j <= n_vertex; j++)
             cout << graph[i][j] << ' ';
         cout << '\n';
     }
@@ -30,23 +30,21 @@ int main(){
     int visited[n_vertex + 10];
     int parent[n_vertex + 10];
     int distance[n_vertex + 10];
-    int source;
-
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, compare> queue_edges;
-
-    for (j = 0; j <= n_vertex; j++){
+    for (int j = 0; j <= n_vertex; j++){
         visited[j] = 0;
         parent[j] = -1;
         distance[j] = numeric_limits<int>::max();
     }
 
+    int source;
     cout << "Enter source : ";
     cin >> source;
     parent[source] = -1;
     distance[source] = 0;
     visited[source] = 1;
 
-    for (i = 0; i <= n_vertex; i++){
+    for (int i = 0; i <= n_vertex; i++){
         if (graph[source][i] != 0){
             queue_edges.push(make_pair(distance[source] + graph[source][i], make_pair(source, i)));
         }
@@ -62,7 +60,7 @@ int main(){
             parent[v] = u;
             distance[v] = distance[u] + graph[u][v];
 
-            for (i = 1; i <= n_vertex; i++){
+            for (int i = 1; i <= n_vertex; i++){
                 if (graph[v][i] != 0){
                     queue_edges.push(make_pair(graph[v][i], make_pair(v, i)));
                 }
@@ -108,4 +106,6 @@ int main(){
 4 5 4
 5 1 7
 5 4 6
+
+1 2 4
 */

@@ -25,15 +25,14 @@ int main(){
     int distance[vertex + 10];
     int visited[vertex + 10];
     int parent[vertex + 10];
-    int source;
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, compare> q;
-
     for (int j = 0; j <= vertex; j++){
         visited[j] = 0;
         parent[j] = -1;
         distance[j] = numeric_limits<int>::max();
     }
 
+    int source;
     cout << "Enter Source: \n";
     cin >> source;
     parent[source] = -1;
